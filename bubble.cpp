@@ -1,42 +1,30 @@
-//CPP Program to sort elements in Bubble Sort
-#include<iostream>
-using namespace std;
-void swapping(int &a, int &b) {     
-   int temp;
-   temp = a;
-   a = b;
-   b = temp;
-}
-void display(int *array, int size) {
-   for(int i = 0; i<size; i++)
-      cout << array[i] << " ";
-   cout << endl;
-}
-void bubbleSort(int *array, int size) {
-   for(int i = 0; i<size; i++) {
-      int swaps = 0;         
-      for(int j = 0; j<size-i-1; j++) {
-         if(array[j] > array[j+1]) {      
-            swapping(array[j], array[j+1]);
-            swaps = 1; 
-         }
-      }
-      if(!swaps)
-         break;       
-   }
-}
-int main() {
-   int n;
-   cout << "Enter the number of elements: ";
-   cin >> n;
-   int arr[n];     
-   cout << "Enter elements:" << endl;
-   for(int i = 0; i<n; i++) {
-      cin >> arr[i];
-   }
-   cout << "Array before Sorting: ";
-   display(arr, n);
-   bubbleSort(arr, n);
-   cout << "Array after Sorting: ";
-   display(arr, n);
+class BubbleSort
+{
+    public:
+    //Function to sort the array using bubble sort algorithm.
+    void bubbleSort(int arr[], int n)
+    {int temp;
+        // Your code here  
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(arr[i]>arr[j]){
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+    }
+};
+
+int main()
+{
+  cout<<"------- Bubble Sort --------";
+  int n=10;
+  int arr[n]={9,86,57,35,8,6,1,90,54,10};
+  BubbleSort bs;
+  bs.bubbleSort(arr,n);
+  return 0;
 }
